@@ -9,10 +9,6 @@ Temp/
 Obj/
 Logs/
 UserSettings/
-
-*.so
-*.dylib
-*.dll
  
 /[Ll]ibrary/
 /[Tt]emp/
