@@ -20,7 +20,7 @@ public class PlayerNameInuput : MonoBehaviour
     private const string PlayerPrefsNameKey = "PlayerName";
     private void Start() => Setupinfield();
         
-        private void Setupinfield()
+     private void Setupinfield()
     {
         if (! PlayerPrefs.HasKey(PlayerPrefsNameKey)) 
             { return; }
