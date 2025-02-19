@@ -4,7 +4,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     public Transform[] spawnPoints;
-    public float spawnRate = 5f;
+    public float spawnRate = 600f;
 
     void Start()
     {
