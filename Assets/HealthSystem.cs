@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class HealthSystem : MonoBehaviour
     }
 
     public float healthAmount = 100f;
-    public Image healthBar;  // Assure-toi d'assigner ça dans l'Inspector
+    public Image healthBar; 
 
     void Start()
     {
@@ -32,10 +33,8 @@ public class HealthSystem : MonoBehaviour
 
     void Update()
     {
-        // Empêche la santé de dépasser 100 ou d’être négative
         healthAmount = Mathf.Clamp(healthAmount, 0, 100);
 
-        // Vérifie les touches pour test
         if (Input.GetKeyDown(KeyCode.Return))
         {
             TakeDamage(20);
@@ -45,8 +44,8 @@ public class HealthSystem : MonoBehaviour
             Heal(20);
         }
 
-        // Met à jour la barre de vie
-        UpdateHealthBar();
+
+   UpdateHealthBar();
     }
 
     public void TakeDamage(float damage)
@@ -70,7 +69,7 @@ public class HealthSystem : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        if (healthBar != null) // Évite l'erreur si healthBar n'est pas assigné
+        if (healthBar != null) 
         {
             healthBar.fillAmount = healthAmount / 100f;
         }
@@ -83,6 +82,8 @@ public class HealthSystem : MonoBehaviour
     void Die()
     {
         Debug.Log("Game Over!");
-        // Ajoute ici un écran de game over ou désactive le joueur
+
+        SceneManager.LoadScene("MenuMort");
+
     }
 }
