@@ -6,49 +6,19 @@ using UnityEngine.UI;
 
 public class Resolutions : MonoBehaviour
 {
-    Resolution[] resolutions;
-    public TMP_Dropdown ResolutionsDropDown;
+    List<int> widths = new List<int>() { 720, 1080, 1200, 1440, 1550 };
+    List<int> heights = new List<int>() { 720, 1080, 1200, 1440, 1550 };
 
-    private void Start()
+    public void Setscreensize(int index)
     {
-        resolutions = Screen.resolutions;
-
-        ResolutionsDropDown.ClearOptions();
-
-        List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
-
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-           
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-
-           
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
-
-
-        ResolutionsDropDown.AddOptions(options);
-
-        ResolutionsDropDown.value = currentResolutionIndex;
-        ResolutionsDropDown.RefreshShownValue();
+        bool fullscreen = Screen.fullScreen;
+        int width = widths[index];
+        int height = heights[index];
+        Screen.SetResolution(width, height, fullscreen);
     }
 
-    public void setResolution(int resolutionIndex)
+    public void SetFullScreen(bool _fullscreen)
     {
-        if (resolutionIndex >= 0 && resolutionIndex < resolutions.Length)
-        {
-            Resolution resolution = resolutions[resolutionIndex];
-            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        }
-        else
-        {
-            Debug.LogError("Indice de résolution invalide: " + resolutionIndex);
-        }
+        Screen.fullScreen = _fullscreen;
     }
 }

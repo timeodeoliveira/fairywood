@@ -2858,15 +2858,31 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: ' 720 x 720'
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: 1080 x 1080
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: 1200 x 1200
+      m_Image: {fileID: 0}
+    - m_Text: 1440 x 1440
+      m_Image: {fileID: 0}
+    - m_Text: 1550 x 1550
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1195807923}
+        m_TargetAssemblyTypeName: Resolutions, Assembly-CSharp
+        m_MethodName: Setscreensize
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &656690867
 MonoBehaviour:
@@ -4681,7 +4697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1b431261fb78b4994a77382348abfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResolutionsDropDown: {fileID: 656690866}
 --- !u!1 &1248840125
 GameObject:
   m_ObjectHideFlags: 0
@@ -5212,9 +5227,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 63105037}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: FullScreen
+      - m_Target: {fileID: 1195807923}
+        m_TargetAssemblyTypeName: Resolutions, Assembly-CSharp
+        m_MethodName: SetFullScreen
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6993,7 +7008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option A
+  m_text: ' 720 x 720'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
