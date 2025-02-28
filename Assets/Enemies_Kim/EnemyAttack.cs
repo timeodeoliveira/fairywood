@@ -10,8 +10,8 @@ public class EnemyAttack : MonoBehaviour
     public float attackCooldown = 1f;
     private float lastAttackTime;
 
-    public GameObject projectilePrefab; 
-    public Transform projectileSpawnPoint; 
+    public GameObject projectilePrefab;
+    public Transform projectileSpawnPoint;
 
     private Transform player;
     private HealthSystem playerHealth;
@@ -51,7 +51,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (Time.time >= lastAttackTime + attackCooldown)
         {
-            playerHealth.TakeDamage(attackDamage);
+            playerHealth.CmdTakeDamage(attackDamage); // Utilise CmdTakeDamage au lieu de TakeDamage
             lastAttackTime = Time.time;
             Debug.Log(gameObject.name + " performed a melee attack!");
         }
@@ -68,7 +68,7 @@ public class EnemyAttack : MonoBehaviour
                 if (rb != null)
                 {
                     Vector2 direction = (player.position - projectileSpawnPoint.position).normalized;
-                    rb.velocity = direction * 5f; 
+                    rb.velocity = direction * 5f;
                 }
             }
             lastAttackTime = Time.time;
@@ -80,7 +80,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (distanceToPlayer <= attackRange && Time.time > lastAttackTime + attackCooldown)
         {
-            playerHealth.TakeDamage(attackDamage);
+            playerHealth.CmdTakeDamage(attackDamage); // Utilise CmdTakeDamage au lieu de TakeDamage
             lastAttackTime = Time.time;
             Debug.Log(gameObject.name + " is hovering and dealing damage!");
         }
