@@ -8,22 +8,7 @@ public class MeleeEnemy : BaseEnemy
     {
         if (Vector2.Distance(transform.position, player.position) > attackRange)
         {
-            base.Move(); // Move normally
+            base.Move();
         }
-    }
-
-    public void Attack()
-    {
-        if (Vector2.Distance(transform.position, player.position) < attackRange)
-        {
-            Debug.Log("Melee Enemy Attacks!");
-            // Implement player damage
-        }
-    }
-
-    void Update()
-    {
-        Move();
-        Attack();
     }
 }

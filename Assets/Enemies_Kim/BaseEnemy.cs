@@ -5,27 +5,27 @@ public class BaseEnemy : MonoBehaviour
     public float speed = 2f;
     public int health = 100;
     protected Transform player;
+    protected Rigidbody2D rb;
 
     public virtual void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
     public virtual void Move()
     {
-        if (player != null)
+        if (player != null && rb != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            Vector2 direction = ((Vector2)player.position - (Vector2)transform.position).normalized;
+            rb.velocity = direction * speed;
         }
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0)
-        {
-            Die();
-        }
+        if (health <= 0) Die();
     }
 
     public void Die()
@@ -34,7 +34,7 @@ public class BaseEnemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
     }

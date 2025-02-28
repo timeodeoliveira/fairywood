@@ -1,22 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
-
-using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class HealthSystem : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy")) 
-        {
-            TakeDamage(20);
-        }
-    }
-
     public float healthAmount = 100f;
-    public Image healthBar; 
+    public Image healthBar;
 
     void Start()
     {
@@ -25,40 +14,32 @@ public class HealthSystem : MonoBehaviour
             healthBar = GetComponent<Image>();
             if (healthBar == null)
             {
-                Debug.LogError("HealthBar non assignée ! Vérifie l’Inspector ou le type d’objet.");
+                Debug.LogError("HealthBar not assigned in Inspector!");
             }
         }
     }
 
-
     void Update()
     {
         healthAmount = Mathf.Clamp(healthAmount, 0, 100);
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            TakeDamage(20);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Heal(20);
-        }
-
-
-   UpdateHealthBar();
+        UpdateHealthBar();
     }
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("TakeDamage called! Damage: " + damage); 
+
         healthAmount -= damage;
         healthAmount = Mathf.Clamp(healthAmount, 0, 100);
         UpdateHealthBar();
 
         if (healthAmount <= 0)
         {
+            Debug.Log("Player should die now!"); 
             Die();
         }
     }
+
 
     public void Heal(float healAmount)
     {
@@ -69,21 +50,21 @@ public class HealthSystem : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        if (healthBar != null) 
+        if (healthBar != null)
         {
             healthBar.fillAmount = healthAmount / 100f;
+            Debug.Log("Health Bar Updated: " + healthBar.fillAmount);
         }
         else
         {
-            Debug.LogWarning("healthBar n'est pas assigné dans l'Inspector !");
+            Debug.LogWarning("Health Bar UI is NOT assigned!");
         }
     }
+
 
     void Die()
     {
         Debug.Log("Game Over!");
-
         SceneManager.LoadScene("MenuMort");
-
     }
 }
