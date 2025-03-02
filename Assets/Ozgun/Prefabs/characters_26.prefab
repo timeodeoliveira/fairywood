@@ -4391,8 +4391,8 @@ GameObject:
   - component: {fileID: 9092338884670525144}
   - component: {fileID: 865622119708468525}
   - component: {fileID: 5111375537114140450}
+  - component: {fileID: 6077634537051430527}
   - component: {fileID: 6552799249666932115}
-  - component: {fileID: 4771120280853439618}
   - component: {fileID: 8751666775902227272}
   - component: {fileID: 6779669392470395123}
   m_Layer: 0
@@ -4560,6 +4560,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7238092, y: 0.52585435}
   m_EdgeRadius: 0
+--- !u!114 &6077634537051430527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702167512068521896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e25616426beb64681ad6ad3a891cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  speed: 3
 --- !u!114 &6552799249666932115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4576,22 +4592,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   virtualCamera: {fileID: 903735183612442957}
---- !u!114 &4771120280853439618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4702167512068521896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e25616426beb64681ad6ad3a891cdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  speed: 3
 --- !u!114 &8751666775902227272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4627,8 +4627,6 @@ MonoBehaviour:
   syncInterval: 0
   healthAmount: 100
   healthBar: {fileID: 7734465306420347706}
-  inventoryButton: {fileID: 2171437491930043297}
-  option: {fileID: 7715664118836809120}
 --- !u!1 &4733840945015130480
 GameObject:
   m_ObjectHideFlags: 0
